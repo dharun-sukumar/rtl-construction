@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - BuildCraft Construction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#DC2626',
+                        accent: '#F59E0B'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-white text-gray-800" dir="ltr">
+     <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">B</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800">BuildCraft</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Home</a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">Home 1</a>
+                            <a href="index2.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">Home 2</a>
+                        </div>
+                    </div>
+                    <a href="projects.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Projects</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Contact</a>
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Dashboard</a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="admin-dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">Admin</a>
+                        </div>
+                    </div>
+                        <!-- RTL Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+            Toggle RTL
+        </button>
+    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden h-screen bg-white border-t">
+                <div class="py-4 space-y-2">
+                    <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Home 1</a>
+                    <a href="index2.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Home 2</a>
+                    <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Projects</a>
+                    <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">About</a>
+                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Contact</a>
+                    <a href="admin-dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Admin</a>
+                        <!-- RTL Toggle -->
+                    <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+                        Toggle RTL
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-primary to-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Our Projects</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active bg-primary text-white px-6 py-3 rounded-lg font-medium transition-all duration-300" data-filter="all">All Projects</button>
+                <button class="filter-btn bg-white text-gray-700 border border-gray-300 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-all duration-300" data-filter="commercial">Commercial</button>
+                <button class="filter-btn bg-white text-gray-700 border border-gray-300 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-all duration-300" data-filter="residential">Residential</button>
+                <button class="filter-btn bg-white text-gray-700 border border-gray-300 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-all duration-300" data-filter="industrial">Industrial</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                
+                <!-- Commercial Project 1 -->
+                <div class="project-item commercial bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/323775/pexels-photo-323775.jpeg" alt="Modern Office Complex" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Commercial</span>
+                            <span class="text-gray-500 text-sm">2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Modern Office Complex</h3>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm text-gray-500">
+                                <span class="block">Location: Downtown</span>
+                                <span class="block">Area: 50,000 sq ft</span>
+                            </div>
+                            <button class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Residential Project 1 -->
+                <div class="project-item residential bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg" alt="Luxury Villa" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm">Residential</span>
+                            <span class="text-gray-500 text-sm">2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Luxury Villa Project</h3>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm text-gray-500">
+                                <span class="block">Location: Suburbs</span>
+                                <span class="block">Area: 8,500 sq ft</span>
+                            </div>
+                            <button class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industrial Project 1 -->
+                <div class="project-item industrial bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/236698/pexels-photo-236698.jpeg" alt="Manufacturing Facility" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Industrial</span>
+                            <span class="text-gray-500 text-sm">2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Manufacturing Facility</h3>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm text-gray-500">
+                                <span class="block">Location: Industrial Zone</span>
+                                <span class="block">Area: 100,000 sq ft</span>
+                            </div>
+                            <button class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commercial Project 2 -->
+                <div class="project-item commercial bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/159213/hall-congress-the-national-congress-hall-building-159213.jpeg" alt="Convention Center" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Commercial</span>
+                            <span class="text-gray-500 text-sm">2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Convention Center</h3>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm text-gray-500">
+                                <span class="block">Location: City Center</span>
+                                <span class="block">Area: 75,000 sq ft</span>
+                            </div>
+                            <button class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Residential Project 2 -->
+                <div class="project-item residential bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg" alt="Apartment Complex" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm">Residential</span>
+                            <span class="text-gray-500 text-sm">2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Apartment Complex</h3>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm text-gray-500">
+                                <span class="block">Location: Midtown</span>
+                                <span class="block">Area: 120 Units</span>
+                            </div>
+                            <button class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industrial Project 2 -->
+                <div class="project-item industrial bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/87351/pexels-photo-87351.jpeg" alt="Warehouse Complex" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Industrial</span>
+                            <span class="text-gray-500 text-sm">2022</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Warehouse Complex</h3>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm text-gray-500">
+                                <span class="block">Location: Port Area</span>
+                                <span class="block">Area: 200,000 sq ft</span>
+                            </div>
+                            <button class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gray-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Have a Project in Mind?</h2>
+            <p class="text-gray-300 text-xl mb-8 max-w-2xl mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1">
+                    Start Your Project
+                </a>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300">
+                    View Portfolio
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">B</span>
+                        </div>
+                        <span class="text-xl font-bold">BuildCraft</span>
+                    </div>
+                    <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Construction</a></li>
+                        <li><a href="#" class="hover:text-white">Architecture</a></li>
+                        <li><a href="#" class="hover:text-white">Renovation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-white">About</a></li>
+                        <li><a href="projects.html" class="hover:text-white">Projects</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>123 Build Street</p>
+                        <p>Construction City, BC 12345</p>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>Random Name — All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

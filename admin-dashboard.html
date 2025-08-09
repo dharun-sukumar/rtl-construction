@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - BuildCraft</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#DC2626',
+                        accent: '#F59E0B'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-100 text-gray-800" dir="ltr">
+    <!-- RTL Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+            Toggle RTL
+        </button>
+    </div>
+
+    <!-- Sidebar -->
+    <div class=" hidden md:block fixed left-0 top-0 h-full w-64 bg-gray-800 text-white z-30" id="sidebar">
+        <div class="p-6">
+            <div class="flex items-center space-x-2 mb-8">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold">B</span>
+                </div>
+                <span class="text-xl font-bold">BuildCraft Admin</span>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="#" class="nav-link active flex items-center space-x-3 px-4 py-3 rounded-lg bg-primary" data-section="dashboard">
+                    <span>📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors" data-section="projects">
+                    <span>🏗️</span>
+                    <span>Projects</span>
+                </a>
+                <a href="#" class="nav-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors" data-section="clients">
+                    <span>👥</span>
+                    <span>Clients</span>
+                </a>
+                <a href="#" class="nav-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors" data-section="team">
+                    <span>👨‍💼</span>
+                    <span>Team</span>
+                </a>
+                <a href="#" class="nav-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors" data-section="finances">
+                    <span>💰</span>
+                    <span>Finances</span>
+                </a>
+                <a href="#" class="nav-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors" data-section="settings">
+                    <span>⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+            <a href="index.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+                <span>🏠</span>
+                <span>Back to Website</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class=" md:ml-64 min-h-screen">
+        <!-- Header -->
+        <header class="bg-white shadow-lg p-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-gray-800" id="pageTitle">Dashboard Overview</h1>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        + New Project
+                    </button>
+                    <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <main class="p-6">
+            
+            <!-- Dashboard Section -->
+            <div id="dashboard-section" class="content-section">
+                <!-- Stats Cards -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Active Projects</p>
+                                <p class="text-3xl font-bold text-primary">24</p>
+                            </div>
+                            <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                                <span class="text-white text-xl">🏗️</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Total Clients</p>
+                                <p class="text-3xl font-bold text-secondary">156</p>
+                            </div>
+                            <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
+                                <span class="text-white text-xl">👥</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Revenue (YTD)</p>
+                                <p class="text-3xl font-bold text-accent">$2.4M</p>
+                            </div>
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                                <span class="text-white text-xl">💰</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Team Members</p>
+                                <p class="text-3xl font-bold text-green-600">42</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                                <span class="text-white text-xl">👨‍💼</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="grid lg:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Project Progress</h3>
+                        <div class="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-500">
+                                <div class="text-4xl mb-2">📊</div>
+                                <p>Progress Chart Placeholder</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Revenue Trends</h3>
+                        <div class="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-500">
+                                <div class="text-4xl mb-2">📈</div>
+                                <p>Revenue Chart Placeholder</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Recent Activities</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm">JD</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium text-gray-800">John Doe started a new project</p>
+                                <p class="text-sm text-gray-600">Modern Office Complex - 2 hours ago</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm">SJ</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium text-gray-800">Sarah Johnson completed phase 2</p>
+                                <p class="text-sm text-gray-600">Residential Villa - 4 hours ago</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm">MC</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium text-gray-800">Mike Chen updated project timeline</p>
+                                <p class="text-sm text-gray-600">Warehouse Complex - 6 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div id="projects-section" class="content-section hidden">
+                <div class="bg-white rounded-lg shadow-lg">
+                    <div class="p-6 border-b">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-xl font-semibold text-gray-800">Project Management</h2>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                Add New Project
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Progress</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Budget</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div>
+                                            <div class="font-medium text-gray-800">Modern Office Complex</div>
+                                            <div class="text-sm text-gray-500">Downtown Location</div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-gray-600">TechCorp Inc.</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Active</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600">65%</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-gray-600">$850K</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <button class="text-primary hover:text-blue-700 text-sm">View</button>
+                                        <button class="text-gray-600 hover:text-gray-800 text-sm ml-2">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div>
+                                            <div class="font-medium text-gray-800">Luxury Villa</div>
+                                            <div class="text-sm text-gray-500">Suburban Area</div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-gray-600">Johnson Family</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">Planning</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-secondary h-2 rounded-full" style="width: 25%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600">25%</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-gray-600">$1.2M</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <button class="text-primary hover:text-blue-700 text-sm">View</button>
+                                        <button class="text-gray-600 hover:text-gray-800 text-sm ml-2">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div>
+                                            <div class="font-medium text-gray-800">Warehouse Complex</div>
+                                            <div class="text-sm text-gray-500">Industrial Zone</div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-gray-600">LogiFlow Ltd.</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">Complete</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-green-600 h-2 rounded-full" style="width: 100%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600">100%</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-gray-600">$2.1M</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <button class="text-primary hover:text-blue-700 text-sm">View</button>
+                                        <button class="text-gray-600 hover:text-gray-800 text-sm ml-2">Archive</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Sections (Clients, Team, Finances, Settings) -->
+            <div id="clients-section" class="content-section hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Client Management</h2>
+                    <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Manage your client relationships and communication.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-800">TechCorp Inc.</h3>
+                            <p class="text-sm text-gray-600">Active projects: 2</p>
+                            <p class="text-sm text-gray-600">Contact: tech@corp.com</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-800">Johnson Family</h3>
+                            <p class="text-sm text-gray-600">Active projects: 1</p>
+                            <p class="text-sm text-gray-600">Contact: johnson@email.com</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-800">LogiFlow Ltd.</h3>
+                            <p class="text-sm text-gray-600">Active projects: 0</p>
+                            <p class="text-sm text-gray-600">Contact: info@logiflow.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="team-section" class="content-section hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Team Management</h2>
+                    <p class="text-gray-600 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Manage your construction team and assignments.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="text-center p-4 border border-gray-200 rounded-lg">
+                            <div class="w-16 h-16 bg-primary rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-white text-lg font-bold">JA</span>
+                            </div>
+                            <h3 class="font-semibold text-gray-800">John Anderson</h3>
+                            <p class="text-sm text-gray-600">Project Manager</p>
+                        </div>
+                        <div class="text-center p-4 border border-gray-200 rounded-lg">
+                            <div class="w-16 h-16 bg-secondary rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-white text-lg font-bold">SJ</span>
+                            </div>
+                            <h3 class="font-semibold text-gray-800">Sarah Johnson</h3>
+                            <p class="text-sm text-gray-600">Lead Architect</p>
+                        </div>
+                        <div class="text-center p-4 border border-gray-200 rounded-lg">
+                            <div class="w-16 h-16 bg-accent rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-white text-lg font-bold">MC</span>
+                            </div>
+                            <h3 class="font-semibold text-gray-800">Mike Chen</h3>
+                            <p class="text-sm text-gray-600">Site Supervisor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="finances-section" class="content-section hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Financial Overview</h2>
+                    <p class="text-gray-600 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Track revenue, expenses, and profitability.</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                            <h3 class="font-semibold text-green-800">Total Revenue</h3>
+                            <p class="text-2xl font-bold text-green-600">$2,400,000</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                            <h3 class="font-semibold text-red-800">Total Expenses</h3>
+                            <p class="text-2xl font-bold text-red-600">$1,800,000</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                            <h3 class="font-semibold text-blue-800">Net Profit</h3>
+                            <p class="text-2xl font-bold text-blue-600">$600,000</p>
+                        </div>
+                    </div>
+
+                    <div class="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <div class="text-4xl mb-2">💹</div>
+                            <p>Financial Chart Placeholder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settings-section" class="content-section hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Settings</h2>
+                    <p class="text-gray-600 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Configure your application settings.</p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Company Information</h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="Company Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                <input type="email" placeholder="Contact Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Notifications</h3>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2" checked>
+                                    <span>Email notifications for new projects</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span>SMS notifications for urgent updates</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                            Save Settings
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

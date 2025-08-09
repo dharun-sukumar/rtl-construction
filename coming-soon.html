@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - BuildCraft</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#DC2626',
+                        accent: '#F59E0B'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-900 text-white overflow-hidden" dir="ltr">
+    <!-- RTL Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+            Toggle RTL
+        </button>
+    </div>
+
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+        <img src="https://images.pexels.com/photos/162539/architecture-building-amsterdam-blue-hour-162539.jpeg" alt="Modern Architecture" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-primary opacity-85"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            
+            <!-- Logo -->
+            <div class="flex items-center justify-center space-x-3 mb-8 animate-fade-in">
+                <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-2xl">B</span>
+                </div>
+                <span class="text-4xl font-bold text-white">BuildCraft</span>
+            </div>
+
+            <!-- Main Content -->
+            <div class="animate-slide-up">
+                <h1 class="text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    Something 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-400">Amazing</span>
+                    <br>is Coming Soon
+                </h1>
+                
+                <p class="text-xl text-gray-300 mb-12 leading-relaxed max-w-2xl mx-auto">
+                    We're crafting an extraordinary experience that will revolutionize the construction industry. Get ready for innovation, quality, and excellence like never before.
+                </p>
+
+                <!-- Countdown Timer -->
+                <div class="grid grid-cols-4 gap-4 max-w-md mx-auto mb-12">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-3xl font-bold text-accent" id="days">30</div>
+                        <div class="text-sm text-gray-300">Days</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-3xl font-bold text-primary" id="hours">12</div>
+                        <div class="text-sm text-gray-300">Hours</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-3xl font-bold text-secondary" id="minutes">45</div>
+                        <div class="text-sm text-gray-300">Minutes</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-3xl font-bold text-green-400" id="seconds">30</div>
+                        <div class="text-sm text-gray-300">Seconds</div>
+                    </div>
+                </div>
+
+                <!-- Email Subscription -->
+                <div class="max-w-lg mx-auto mb-12">
+                    <h3 class="text-xl font-semibold mb-4">Be the First to Know</h3>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="Enter your email address" class="flex-1 px-6 py-4 rounded-lg bg-white bg-opacity-10 backdrop-blur-sm border border-gray-300 border-opacity-20 text-white placeholder-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1">
+                            Notify Me
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Features Preview -->
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🏗️</span>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">Premium Construction</h4>
+                        <p class="text-gray-300 text-sm">State-of-the-art construction techniques and materials for superior quality.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🎯</span>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">Precision Design</h4>
+                        <p class="text-gray-300 text-sm">Architectural excellence with attention to every detail and specification.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">⚡</span>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">Innovation First</h4>
+                        <p class="text-gray-300 text-sm">Cutting-edge technology and sustainable building practices.</p>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-all duration-300">
+                        <span class="text-xl">📘</span>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-all duration-300">
+                        <span class="text-xl">🐦</span>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-all duration-300">
+                        <span class="text-xl">📷</span>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-all duration-300">
+                        <span class="text-xl">💼</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300">← Back to Home</a>
+                    <a href="about.html" class="text-gray-300 hover:text-white transition-colors duration-300">About Us</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+                    <a href="projects.html" class="text-gray-300 hover:text-white transition-colors duration-300">View Current Projects</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Animated Particles -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute animate-float-1 opacity-30">
+            <div class="w-2 h-2 bg-primary rounded-full"></div>
+        </div>
+        <div class="absolute animate-float-2 opacity-30" style="top: 20%; left: 80%;">
+            <div class="w-3 h-3 bg-accent rounded-full"></div>
+        </div>
+        <div class="absolute animate-float-3 opacity-30" style="top: 60%; left: 10%;">
+            <div class="w-2 h-2 bg-secondary rounded-full"></div>
+        </div>
+        <div class="absolute animate-float-1 opacity-30" style="top: 80%; left: 70%;">
+            <div class="w-4 h-4 bg-green-400 rounded-full"></div>
+        </div>
+        <div class="absolute animate-float-2 opacity-30" style="top: 40%; left: 20%;">
+            <div class="w-3 h-3 bg-purple-400 rounded-full"></div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

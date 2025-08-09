@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildCraft - Premium Construction & Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#DC2626',
+                        accent: '#F59E0B'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-white text-gray-800" dir="ltr">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">B</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800">BuildCraft</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Home</a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">Home 1</a>
+                            <a href="index2.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">Home 2</a>
+                        </div>
+                    </div>
+                    <a href="projects.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Projects</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Contact</a>
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Dashboard</a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="admin-dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">Admin</a>
+                        </div>
+                    </div>
+                        <!-- RTL Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+            Toggle RTL
+        </button>
+    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden h-screen bg-white border-t">
+                <div class="py-4 space-y-2">
+                    <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Home 1</a>
+                    <a href="index2.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Home 2</a>
+                    <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Projects</a>
+                    <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">About</a>
+                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Contact</a>
+                    <a href="admin-dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Admin</a>
+                        <!-- RTL Toggle -->
+                    <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+                        Toggle RTL
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 lg:pr-12 mb-8 lg:mb-0">
+                    <h1 class="text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
+                        Building Dreams Into
+                        <span class="text-primary">Reality</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1">
+                            Get Started
+                        </button>
+                        <button class="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300">
+                            View Projects
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="https://images.pexels.com/photos/209274/pexels-photo-209274.jpeg" alt="Construction Site" class="rounded-lg shadow-2xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-white text-2xl">🏗️</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Construction</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-secondary rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-white text-2xl">🏛️</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Architecture</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-accent rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-white text-2xl">🏠</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Renovation</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/323775/pexels-photo-323775.jpeg" alt="Modern Office Building" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Modern Office Complex</h3>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+                        <a href="projects.html" class="text-primary font-semibold hover:text-blue-700">Learn More →</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg" alt="Residential Building" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Luxury Residential</h3>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+                        <a href="projects.html" class="text-primary font-semibold hover:text-blue-700">Learn More →</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/159213/hall-congress-the-national-congress-hall-building-159213.jpeg" alt="Commercial Center" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Commercial Center</h3>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+                        <a href="projects.html" class="text-primary font-semibold hover:text-blue-700">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
+            <p class="text-blue-100 text-xl mb-8 max-w-2xl mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <button class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1">
+                Get Free Quote
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">B</span>
+                        </div>
+                        <span class="text-xl font-bold">BuildCraft</span>
+                    </div>
+                    <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Construction</a></li>
+                        <li><a href="#" class="hover:text-white">Architecture</a></li>
+                        <li><a href="#" class="hover:text-white">Renovation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-white">About</a></li>
+                        <li><a href="projects.html" class="hover:text-white">Projects</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>123 Build Street</p>
+                        <p>Construction City, BC 12345</p>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>Random Name — All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
