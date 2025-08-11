@@ -7,6 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+        <!-- Set dir attribute early to prevent FOUC -->
+        <script>
+            (function() {
+                try {
+                    var savedDir = localStorage.getItem('textDirection');
+                    if (savedDir) {
+                        document.documentElement.setAttribute('dir', savedDir);
+                    }
+                } catch (e) {}
+            })();
+        </script>
     <script>
         tailwind.config = {
             theme: {
@@ -24,12 +35,12 @@
         }
     </script>
 </head>
-<body class="font-inter bg-white text-gray-800" dir="ltr">
+<body class="font-inter bg-white text-gray-800">
 
     <!-- Navigation -->
     <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
         <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
+            <div class="flex justify-between items-center py-4 navbar-flex" id="navbarFlex">
                 <div class="flex items-center space-x-2">
                     <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                         <span class="text-white font-bold text-xl">B</span>
@@ -38,7 +49,7 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-8 navbar-links">
                     <div class="relative group">
                         <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Home</a>
                         <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
@@ -54,13 +65,11 @@
                         <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                             <a href="admin-dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">Admin</a>
                         </div>
-                    </div>
-                        <!-- RTL Toggle -->
-    <div class="fixed top-4 right-4 z-50">
-        <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
-            Toggle RTL
-        </button>
-    </div>
+                                                <!-- RTL Toggle -->
+                        </div>
+                            <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+                                Toggle RTL
+                            </button>
                 </div>
 
                 <!-- Mobile Menu Button -->

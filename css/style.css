@@ -1,3 +1,11 @@
+/* Reverse nav links order in RTL */
+[dir="rtl"] .navbar-links {
+    flex-direction: row-reverse;
+}
+/* Navbar RTL swap */
+[dir="rtl"] .navbar-flex {
+    flex-direction: row-reverse;
+}
 /* Custom Animations and Styles */
 
 /* Fade in animation */

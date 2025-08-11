@@ -18,27 +18,35 @@ document.addEventListener('DOMContentLoaded', function() {
 // RTL Toggle Functionality
 function initRTLToggle() {
     const rtlToggle = document.getElementById('rtlToggle');
+    const navbarFlex = document.getElementById('navbarFlex');
+    function updateNavbarFlex(dir) {
+        if (!navbarFlex) return;
+        if (dir === 'rtl') {
+            navbarFlex.classList.add('flex-row-reverse');
+        } else {
+            navbarFlex.classList.remove('flex-row-reverse');
+        }
+    }
     if (rtlToggle) {
         rtlToggle.addEventListener('click', function() {
-            const body = document.body;
-            const currentDir = body.getAttribute('dir') || 'ltr';
+            const root = document.documentElement;
+            const currentDir = root.getAttribute('dir') || 'ltr';
             const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
-            body.setAttribute('dir', newDir);
-            
+            root.setAttribute('dir', newDir);
+            updateNavbarFlex(newDir);
             // Store preference in localStorage
             localStorage.setItem('textDirection', newDir);
-            
             // Add visual feedback
             rtlToggle.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 rtlToggle.style.transform = 'scale(1)';
             }, 150);
         });
-        
         // Load saved preference
         const savedDir = localStorage.getItem('textDirection');
         if (savedDir) {
-            document.body.setAttribute('dir', savedDir);
+            document.documentElement.setAttribute('dir', savedDir);
+            updateNavbarFlex(savedDir);
         }
     }
 }
