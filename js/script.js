@@ -18,15 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // RTL Toggle Functionality
 function initRTLToggle() {
     const rtlToggle = document.getElementById('rtlToggle');
-    const navbarFlex = document.getElementById('navbarFlex');
-    function updateNavbarFlex(dir) {
-        if (!navbarFlex) return;
-        if (dir === 'rtl') {
-            navbarFlex.classList.add('flex-row-reverse');
-        } else {
-            navbarFlex.classList.remove('flex-row-reverse');
-        }
-    }
+
     if (rtlToggle) {
         rtlToggle.addEventListener('click', function() {
             const root = document.documentElement;

@@ -1,11 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
 /* Reverse nav links order in RTL */
 [dir="rtl"] .navbar-links {
     flex-direction: row-reverse;
 }
 /* Navbar RTL swap */
-[dir="rtl"] .navbar-flex {
-    flex-direction: row-reverse;
-}
+
 /* Custom Animations and Styles */
 
 /* Fade in animation */
@@ -94,10 +102,6 @@
 /* RTL Layout Support */
 [dir="rtl"] {
     text-align: right;
-}
-
-[dir="rtl"] .flex {
-    flex-direction: row-reverse;
 }
 
 [dir="rtl"] .space-x-2 > * + * {

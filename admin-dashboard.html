@@ -25,12 +25,67 @@
     </script>
 </head>
 <body class="font-inter bg-gray-100 text-gray-800" dir="ltr">
-    <!-- RTL Toggle -->
-    <div class="fixed top-4 right-4 z-50">
-        <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
-            Toggle RTL
-        </button>
-    </div>
+ <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex rtl:flex-row-reverse justify-between items-center py-4 navbar-flex" id="navbarFlex">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">B</span>
+                    </div>
+                    <span class="text-2xl font-bold px-4 text-gray-800">BuildCraft</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 navbar-links">
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 rtl:mx-8 hover:text-primary transition-colors duration-300 font-medium">Home</a>
+                        <div class="absolute top-full left-auto rtl:left-0 rtl:text-left bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">Home 1</a>
+                            <a href="index2.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">Home 2</a>
+                        </div>
+                    </div>
+                    <a href="projects.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Projects</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Contact</a>
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Dashboard</a>
+                        <div class="absolute top-full left-auto rtl:left-0 rtl:text-left bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="admin-dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">Admin</a>
+                        </div>
+                                                <!-- RTL Toggle -->
+                        </div>
+                            <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+                                Toggle RTL
+                            </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden h-screen bg-white border-t">
+                <div class="py-4 space-y-2">
+                    <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Home 1</a>
+                    <a href="index2.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Home 2</a>
+                    <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Projects</a>
+                    <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">About</a>
+                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Contact</a>
+                    <a href="admin-dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Admin</a>
+                        <!-- RTL Toggle -->
+                    <button id="rtlToggle" class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+                        Toggle RTL
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
 
     <!-- Sidebar -->
     <div class=" hidden md:block fixed left-0 top-0 h-full w-64 bg-gray-800 text-white z-30" id="sidebar">
@@ -79,7 +134,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class=" md:ml-64 min-h-screen">
+    <div class=" md:ml-64 md:rtl:ml-0 md:rtl:mr-64 min-h-screen">
         <!-- Header -->
         <header class="bg-white shadow-lg p-6">
             <div class="flex justify-between items-center">
