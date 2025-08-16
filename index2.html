@@ -25,11 +25,11 @@
     </script>
 </head>
 <body class="font-inter bg-white text-gray-800" dir="ltr">
-     <!-- Navigation -->
+    <!-- Navigation -->
     <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
         <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4 navbar-flex" id="navbarFlex">
-                <div class="flex items-center space-x-2">
+            <div class="flex justify-between items-center py-4 navbar-flex rtl:flex-row-reverse" id="navbarFlex">
+                <div class="flex items-center gap-2">
                     <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                         <span class="text-white font-bold text-xl">B</span>
                     </div>
@@ -37,7 +37,7 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8 navbar-links">
+                <div class="hidden md:flex items-center gap-8 navbar-links">
                     <div class="relative group">
                         <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Home</a>
                         <div class="absolute top-full left-auto rtl:left-0 rtl:text-left bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
@@ -242,7 +242,7 @@
                     <div class="text-accent mb-4">⭐⭐⭐⭐⭐</div>
                     <p class="text-gray-600 mb-6">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Smith" class="w-12 h-12 bg-gray-300 rounded-full mr-4">
                         <div>
                             <h4 class="font-semibold text-gray-800">John Smith</h4>
                             <p class="text-gray-500 text-sm">CEO, Company Ltd.</p>
@@ -254,7 +254,7 @@
                     <div class="text-accent mb-4">⭐⭐⭐⭐⭐</div>
                     <p class="text-gray-600 mb-6">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Sarah Johnson" class="w-12 h-12 bg-gray-300 rounded-full mr-4">
                         <div>
                             <h4 class="font-semibold text-gray-800">Sarah Johnson</h4>
                             <p class="text-gray-500 text-sm">Project Manager</p>
@@ -266,7 +266,7 @@
                     <div class="text-accent mb-4">⭐⭐⭐⭐⭐</div>
                     <p class="text-gray-600 mb-6">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Mike Wilson" class="w-12 h-12 bg-gray-300 rounded-full mr-4">
                         <div>
                             <h4 class="font-semibold text-gray-800">Mike Wilson</h4>
                             <p class="text-gray-500 text-sm">Property Developer</p>
@@ -277,12 +277,13 @@
         </div>
     </section>
 
-    <!-- Footer -->
+     <!-- Footer -->
+     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <div class="flex items-center space-x-2 mb-4">
+                    <div class="flex items-center gap-2 mb-4 rtl:flex-row-reverse">
                         <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                             <span class="text-white font-bold">B</span>
                         </div>
@@ -324,7 +325,6 @@
             </div>
         </div>
     </footer>
-
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -7,7 +7,11 @@
 html {
     overflow-x: hidden;
 }
-
+:root {
+    direction: ltr; /* Default direction */
+    writing-mode: horizontal-tb; /* Default writing mode */
+    text-orientation: mixed; /* Default text orientation */
+}
 /* Reverse nav links order in RTL */
 [dir="rtl"] .navbar-links {
     flex-direction: row-reverse;
