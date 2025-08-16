@@ -59,6 +59,7 @@ function initMobileMenu() {
                     mobileMenu.classList.remove('mobile-menu-enter');
                     mobileMenu.classList.add('mobile-menu-enter-active');
                 }, 10);
+                initMobileRTLToggle(); // Ensure RTL toggle is initialized when menu is shown
             } else {
                 mobileMenu.classList.add('hidden');
                 mobileMenu.classList.remove('mobile-menu-enter-active');
@@ -67,6 +68,41 @@ function initMobileMenu() {
             // Toggle hamburger icon animation
             const icon = mobileMenuBtn.querySelector('svg');
             icon.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
+        });
+    }
+}
+
+// Mobile RTL Toggle
+function initMobileRTLToggle() {
+    const rtlToggleMobile = document.getElementById('rtlToggleMobile');
+
+    if (rtlToggleMobile) {
+        rtlToggleMobile.addEventListener('click', function() {
+            const root = document.documentElement;
+            const currentDir = root.getAttribute('dir') || 'ltr';
+            const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+            root.setAttribute('dir', newDir);
+            updateNavbarFlex(newDir);
+            // Store preference in localStorage
+            localStorage.setItem('textDirection', newDir);
+            // Add visual feedback
+            rtlToggleMobile.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                rtlToggleMobile.style.transform = 'scale(1)';
+            }, 150);
+            // Close the mobile menu after toggling RTL
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+            // Rotate the hamburger menu icon back to its original position
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            if (mobileMenuBtn) {
+                const icon = mobileMenuBtn.querySelector('svg');
+                if (icon) {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            }
         });
     }
 }
@@ -431,3 +467,9 @@ style.textContent = `
 }
 `;
 document.head.appendChild(style);
+
+// Placeholder function for updateNavbarFlex
+function updateNavbarFlex(direction) {
+    // Add logic here if needed to update the navbar based on the direction
+    console.log(`Navbar updated for direction: ${direction}`);
+}
